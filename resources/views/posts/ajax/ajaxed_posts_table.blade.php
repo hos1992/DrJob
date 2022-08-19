@@ -1,4 +1,3 @@
-<h1> Posts Index ( ajax pagination )</h1>
 <div id="table-container" class="table-responsive ">
     <table class="table table-bordered">
         <thead>
