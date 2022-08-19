@@ -17,6 +17,8 @@ Route::middleware('CheckAuthUser')->group(function () {
 
     // users controller
     Route::resource('users', \App\Http\Controllers\UsersController::class);
+    Route::post('users/toggle-active-state', [\App\Http\Controllers\UsersController::class, 'toggleActiveState'])
+        ->name('users.toggle-active-state');
 
     // posts controller
     Route::resource('posts', \App\Http\Controllers\PostsController::class);

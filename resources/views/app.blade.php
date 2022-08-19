@@ -32,6 +32,10 @@
             max-height: 450px;
         }
 
+        .toggle-active-state {
+            height: 40px;
+            width: 5rem !important;
+        }
     </style>
 </head>
 <body class="antialiased">
