@@ -28,6 +28,10 @@
             font-size: 12px;
         }
 
+        .table-responsive {
+            max-height: 450px;
+        }
+
     </style>
 </head>
 <body class="antialiased">
@@ -38,7 +42,7 @@
 
 
 <div class="container">
-    <div class="m-4">
+    <div id="page-wrapper" class="m-4">
         @yield('content')
     </div>
 </div>

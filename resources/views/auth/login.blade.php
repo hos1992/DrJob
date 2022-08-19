@@ -6,13 +6,18 @@
 
     <div class="row">
         <div class="col">
-            <h3>Admin credentials</h3>
+            <h3>Admin Credentials</h3>
             <p>Email : admin@admin.com</p>
             <p>Password : password</p>
         </div>
         <div class="col">
-            <h3>User credentials</h3>
+            <h3>User Credentials</h3>
             <p>Email : user@user.com</p>
+            <p>Password : password</p>
+        </div>
+        <div class="col">
+            <h3>Super Admin Credentials</h3>
+            <p>Email : super@admin.com</p>
             <p>Password : password</p>
         </div>
     </div>

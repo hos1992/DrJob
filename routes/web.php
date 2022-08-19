@@ -15,5 +15,11 @@ Route::middleware('CheckAuthUser')->group(function () {
     // home
     Route::get('/', [\App\Http\Controllers\MainController::class, 'home'])->name('home');
 
+    // users controller
+    Route::resource('users', \App\Http\Controllers\UsersController::class);
+
+    // posts controller
+    Route::resource('posts', \App\Http\Controllers\PostsController::class);
+
 
 });

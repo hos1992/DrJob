@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Actions\_Base\SuperAdminHomeAction;
+use App\Actions\Post\PostIndexAction;
+use App\Actions\User\UserIndexAction;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\App;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class User extends Authenticatable
 {
@@ -34,4 +39,24 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+    /**
+     * @return Attribute
+     */
+    public function userHomeAction(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                if ($this->hasRole('super-admin')) {
+                    return App::call(new SuperAdminHomeAction());
+                }
+                if ($this->hasRole('admin')) {
+                    return App::call(new UserIndexAction());
+                }
+                if ($this->hasRole('user')) {
+                    return App::call(new PostIndexAction());
+                }
+            },
+        );
+    }
 }
